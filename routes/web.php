@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
+Route::get('/', function () {
+    return view('welcome');
 });
+Route::get('/home'                              , 'ControllerPrincipal@getViewHome');
+Route::get('/home/cadastrofuncionario'          , 'ControllerPrincipal@getViewCadastroFuncionario');
+Route::get('/home/cadastroterritorio'           , 'ControllerPrincipal@getViewCadastroTerritorio');
+Route::get('/home/cadastroregiao'               , 'ControllerPrincipal@getViewCadastroRegiao');
+Route::get('/home/consultafuncionario'          , 'ControllerFuncionario@getSqlPadraoConsultaFuncionario');
+Route::get('/home/consultaterritorio'           , 'ControllerTerritorio@getSqlPadraoConsultaTerritorio');
+Route::get('/home/consultaregiao'               , 'ControllerRegiao@getSqlPadraoConsultaRegiao');
+Route::get('/home/consultafuncionarioterritorio', 'ControllerFuncionario@getSqlConultaFuncionarioTerritorio');
 
+Route::get('/home/inserefuncionario'            , 'ControllerFuncionario@getSqlAdicionaFuncionario');
+        

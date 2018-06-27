@@ -4,6 +4,8 @@ namespace Northwind\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 
+use Request;
+
 /**
  * Controllador do Funcionário
  * 
@@ -33,26 +35,33 @@ class ControllerFuncionario extends Controller {
         return view('funcionario/ViewConsultaFuncionarioTerritorio')->with('funcionarios_territorios', $bFuncionariosTerritorios);
     }
 
+    /**
+     * Insere o Funcionário no Banco.
+     * 
+     * @return Object
+     */
     public function getSqlAdicionaFuncionario() {
-        $bFuncionario = DB::select('SELECT * FROM funcionarios');
-        $Contador = DB::select('SELECT COUNT(IDFuncionario) from funcionarios') + 1;
-        $Nome = Request::input('nome');
-        $Sobrenome = Request::input('sobrenome');
-        $Titulo = Request::input('titulo');
-        $TituloCortesia = Request::input('titulocortesia');
-        $DataNac = Request::input('datanac');
-        $DataAdmissao = Request::input('dataadmissao');
-        $Endereco = Request::input('endereco');
-        $Cidade = Request::input('cidade');
-        $Regiao = Request::input('regiao');
-        $Cep = Request::input('cep');
-        $Pais = Request::input('pais');
+        $bFuncionario        = DB::select('SELECT * FROM funcionarios');
+        $Contador            = DB::select('SELECT (MAX(IDFuncionario+1)) AS max FROM funcionarios');
+
+
+        $Nome                = Request::input('nome');
+        $Sobrenome           = Request::input('sobrenome');
+        $Titulo              = Request::input('titulo');
+        $TituloCortesia      = Request::input('titulocortesia');
+        $DataNac             = Request::input('datanac');
+        $DataAdmissao        = Request::input('dataadmissao');
+        $Endereco            = Request::input('endereco');
+        $Cidade              = Request::input('cidade');
+        $Regiao              = Request::input('regiao');
+        $Cep                 = Request::input('cep');
+        $Pais                = Request::input('pais');
         $TelefoneResidencial = Request::input('telefoneresidencial');
 
         DB::table('funcionarios')->insert(
-                ['IDFuncionario' => $Contador,
+                ['IDFuncionario' => $Contador[0]->max,
                     'Nome' => $Nome,
-                    'Sobrenomenome' => $Sobrenome,
+                    'Sobrenome' => $Sobrenome,
                     'Titulo' => $Titulo,
                     'TituloCortesia' => $TituloCortesia,
                     'DataNac' => $DataNac,

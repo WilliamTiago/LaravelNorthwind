@@ -10,8 +10,9 @@
 
 <div class = "container">
     
-    <form class = "container" action = "" method = "POST">        
+    <form class = "container" action = "/home/consultafuncionario" method = "POST"> 
         <div class = "container">
+            <input type="hidden" name="_token" value='{{ csrf_token() }}'>
             <div class="form-group">
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome">

@@ -23,5 +23,8 @@ Route::get('/home/consultaterritorio'           , 'ControllerTerritorio@getSqlPa
 Route::get('/home/consultaregiao'               , 'ControllerRegiao@getSqlPadraoConsultaRegiao');
 Route::get('/home/consultafuncionarioterritorio', 'ControllerFuncionario@getSqlConultaFuncionarioTerritorio');
 
-Route::post('/home/consultafuncionario'          , 'ControllerFuncionario@getSqlAdicionaFuncionario');
+Route::post('/home/consultafuncionario'                     , 'ControllerFuncionario@getSqlAdicionaFuncionario');
+//Route::match(array('GET','POST'),'/home/alterafuncionario/{id}'  , 'ControllerFuncionario@getSqlAlteraFuncionario');
+Route::get('/home/alterafuncionario/{id}', 'ControllerFuncionario@getSqlAlteraFuncionario');
+
         

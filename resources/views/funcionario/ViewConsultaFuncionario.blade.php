@@ -35,7 +35,7 @@
             <td>{{ $oFunc->Regiao }}</td>
             <td>{{ $oFunc->Pais }}</td>
             <td>
-                <a href="">
+                <a href="/home/alterafuncionario/{{ $oFunc->IDFuncionario }}" >
                     <i class="far fa-edit"></i>
                 </a>
                 <a href="">

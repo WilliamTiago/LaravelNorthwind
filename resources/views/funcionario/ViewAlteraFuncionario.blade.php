@@ -1,6 +1,7 @@
 @extends('layout/ViewLayout')
 
 @section('content')
+
 <br><br><br><br><br>
 
 <center>
@@ -14,7 +15,7 @@
         <div class = "container">
             <div class="form-group">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome">
+                <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome" value="{{$bFuncionario->Nome}}">
             </div>
             <div class="form-group">
                 <label for="sobrenome">Sobrenome</label>

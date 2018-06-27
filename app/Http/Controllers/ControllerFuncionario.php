@@ -13,10 +13,11 @@ use Request;
  * @author  William Goebel
  * @since   25/06/2018
  */
+
 class ControllerFuncionario extends Controller {
 
     /**
-     * SQL padrão da Consulta de Funcionários.
+     * Consulta de Funcionários.
      * 
      * @return Object
      */
@@ -26,7 +27,7 @@ class ControllerFuncionario extends Controller {
     }
     
     /**
-     * SQL padrão da Consulta de Funcionários.
+     * Carregar dados do funcionário selecionado na tela de alteração.
      * 
      * @return Object
      */
@@ -34,9 +35,33 @@ class ControllerFuncionario extends Controller {
         $bFuncionario = DB::select("SELECT * FROM funcionarios WHERE IDFuncionario = {$id}");
         return view('funcionario/ViewAlteraFuncionario')->with('bFuncionario', $bFuncionario[0]);
     }
+    
+    /**
+     * Excluir dados do funcionário selecionado na tela de alteração.
+     * 
+     * @return Object
+     */
+    public function getSqlExcluiFuncionario($id) {
+        $bFuncionario = DB::select("Delete FROM funcionarios WHERE IDFuncionario = {$id}");
+        $bFuncionario = DB::select('SELECT * FROM funcionarios');
+        return view('funcionario/ViewConsultaFuncionario')->with('funcionarios', $bFuncionario);
+    }
+    
+    /**
+     * Alterar dados do funcionário selecionado.
+     * 
+     * @return Object
+     */
+    public function getSqlAlteraUpdateFuncionario() {
+        $ID                = Request::input('id');
+        $Nome              = Request::input('nome');
+        $bFuncionario = DB::select("UPDATE `funcionarios` SET `Nome` = '".$Nome."'  WHERE IDFuncionario =" . $ID );
+        $bFuncionario = DB::select('SELECT * FROM funcionarios');
+        return view('funcionario/ViewConsultaFuncionario')->with('funcionarios', $bFuncionario);
+    }
 
     /**
-     * Busca o SQL da consulta do Relacionamento Funcionário x Território.
+     * Busca o Relacionamento Funcionário x Território.
      * 
      * @return Object
      */
@@ -53,8 +78,6 @@ class ControllerFuncionario extends Controller {
     public function getSqlAdicionaFuncionario() {
         $bFuncionario        = DB::select('SELECT * FROM funcionarios');
         $Contador            = DB::select('SELECT (MAX(IDFuncionario+1)) AS max FROM funcionarios');
-
-
         $Nome                = Request::input('nome');
         $Sobrenome           = Request::input('sobrenome');
         $Titulo              = Request::input('titulo');

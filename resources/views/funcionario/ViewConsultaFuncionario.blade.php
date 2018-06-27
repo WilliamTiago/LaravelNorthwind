@@ -36,10 +36,10 @@
             <td>{{ $oFunc->Pais }}</td>
             <td>
                 <a href="/home/alterafuncionario/{{ $oFunc->IDFuncionario }}" >
-                    <i class="far fa-edit"></i>
+                    [...]
                 </a>
-                <a href="">
-                    <i class="far fa-file-excel"></i>
+                <a href="/home/excluifuncionario/{{ $oFunc->IDFuncionario }}">
+                    [ X ]
                 </a>
             </td>
         </tr>

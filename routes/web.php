@@ -22,9 +22,9 @@ Route::get('/home/consultafuncionario'          , 'ControllerFuncionario@getSqlP
 Route::get('/home/consultaterritorio'           , 'ControllerTerritorio@getSqlPadraoConsultaTerritorio');
 Route::get('/home/consultaregiao'               , 'ControllerRegiao@getSqlPadraoConsultaRegiao');
 Route::get('/home/consultafuncionarioterritorio', 'ControllerFuncionario@getSqlConultaFuncionarioTerritorio');
-
-Route::post('/home/consultafuncionario'                     , 'ControllerFuncionario@getSqlAdicionaFuncionario');
-//Route::match(array('GET','POST'),'/home/alterafuncionario/{id}'  , 'ControllerFuncionario@getSqlAlteraFuncionario');
-Route::get('/home/alterafuncionario/{id}', 'ControllerFuncionario@getSqlAlteraFuncionario');
+Route::post('/adicionafuncionario'              , 'ControllerFuncionario@getSqlAdicionaFuncionario');
+Route::get('/home/alterafuncionario/{id}'       , 'ControllerFuncionario@getSqlAlteraFuncionario');
+Route::get('/home/excluifuncionario/{id}'       , 'ControllerFuncionario@getSqlExcluiFuncionario');
+Route::match(array('GET','POST'),'/home/alterafuncionarioupdate'     , 'ControllerFuncionario@getSqlAlteraUpdateFuncionario');
 
         

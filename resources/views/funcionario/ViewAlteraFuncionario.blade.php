@@ -11,9 +11,11 @@
 
 <div class = "container">
     
-    <form class = "container" action = "" method = "POST">        
+    <form class = "container" action = "/home/alterafuncionarioupdate" method = "POST">        
         <div class = "container">
             <div class="form-group">
+            <input type="hidden" name="_token" value='{{ csrf_token() }}'>
+            <input type="hidden" name="id" value='{{ $bFuncionario->IDFuncionario }}'>
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome" value="{{$bFuncionario->Nome}}">
             </div>

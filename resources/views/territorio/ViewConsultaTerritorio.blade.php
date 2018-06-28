@@ -24,10 +24,10 @@
         <td>{{ $oTerritorio->DescricaoRegiao }}</td>
         <td>
             <a href="">
-                <i class="far fa-edit"></i>
+                [...]
             </a>
             <a href="">
-                <i class="far fa-file-excel"></i>
+                [ X ]
             </a>
         </td>
     </tr>

@@ -14,10 +14,6 @@
         <div class = "divGambiarra01">
             <div class = "container">
                 <div class="form-group">
-                    <label for="idfuncionario">Identificador do Território</label>
-                    <input style="width: 100px;" type="number" id="idfuncionario" class="form-control" name="idfuncionario" placeholder="Cód Ter">
-                </div>
-                <div class="form-group">
                     <label for="descricaoterritorio">Descrição do Território</label>
                     <input style="width: 400px;" type="text" id="descricaoterritorio" class="form-control" name="descricaoterritorio" placeholder="Descrição">
                 </div>

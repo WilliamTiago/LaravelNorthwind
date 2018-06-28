@@ -14,10 +14,6 @@
         <div class = "divGambiarra01">
             <div class = "container">
                 <div class="form-group">
-                    <label for="idregiao">Identificador da Região</label>
-                    <input style="width: 100px;" type="number" id="idregiao" class="form-control" name="idregiao" placeholder="Cód Reg">
-                </div>
-                <div class="form-group">
                     <label for="desregiao">Descrição da Região</label>
                     <input style="width: 400px;" type="text" id="desregiao" class="form-control" name="desregiao" placeholder="Descrição">
                 </div>
